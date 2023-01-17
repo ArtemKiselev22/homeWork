@@ -1,33 +1,32 @@
-Imports System
+п»їImports System
 
 Module HWcycle
     Sub Main(args As String())
-        Const MAX As Integer = 2147483647
-        Dim N, B, F As Integer
-        F = 1
-        Console.WriteLine("Напиши первое  целое число ")
-        N = CInt(Console.ReadLine())
-        Console.WriteLine("Напиши второе  целое число")
-        B = CInt(Console.ReadLine())
-        For i = 1 To N
-            If (F < MAX / i) Then
-                F = N * B
+        Dim a, p, n As Integer
+        Const max As Integer = 2147483647
+
+
+        p = 1
+        Console.WriteLine(" Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ РІРІРѕРґРёРјС‹С… С‡РёСЃРµР» ")
+        n = (Console.ReadLine())
+        For i = 1 To n
+            If (p < max / a) Then
+                Console.WriteLine(" РІРІРµРґРёС‚Рµ С‡РёСЃР»Рѕ ")
+                a = (Console.ReadLine())
+                p = p * a
+
+
             Else
-                Console.Write("Переполнение памяти, расчет выполниния для N=")
-                Console.WriteLine(i - 1)
-                Exit For
+                Console.Write(" РџР°РјСЏС‚СЊ РїРµСЂРµРіСЂСѓР¶РёРЅР° !!!")
+                Console.WriteLine(a - 1)
             End If
+
         Next
-        Console.Write("Произведение двух чисел =")
-        Console.Write(F)
 
 
 
-
-
-
-
-
+        Console.WriteLine(" РџСЂРѕРёР·РІРµРґРµРЅРёРµ N РІРІРµРґРµРЅРЅС‹С… Р’Р°РјРё С‡РёСЃРµР» СЂР°РІРЅРѕ ")
+        Console.WriteLine(p)
 
 
 
