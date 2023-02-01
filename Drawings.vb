@@ -7,8 +7,8 @@ Module Drawings
 
 
         For u = 0 To 4
-            Console.WriteLine("Что ты хочешь, чтоб я нарисовал ")
-            Console.WriteLine("1 = вертикальную линию,2 = горизонтальную,3 =  квадрат,4 =  цветной квадрат ?, 5 = самому нарисовать ")
+            Console.WriteLine(" Что ты хочешь, чтоб я нарисовал ")
+            Console.WriteLine(" 1 = вертикальную линию,2 = горизонтальную,3 =  квадрат,4 =  цветной квадрат ?, 5 = самому нарисовать ")
             u = Console.ReadLine
 
             If u = 1 Then
@@ -63,7 +63,7 @@ Module Drawings
                 Console.WriteLine()
 
             End If
-            Console.WriteLine("спасибо за просмотр!!! ")
+            Console.WriteLine(" спасибо за просмотр!!! ")
 
         Next
 
