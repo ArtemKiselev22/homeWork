@@ -1,36 +1,41 @@
 Imports System
+Imports System.Drawing
+Imports System.Runtime.Intrinsics.Arm
 
 Module Drawings
     Private brush As Char = "0"c
     Sub Main(args As String())
         Dim u As Integer
 
-        For u = 0 To 5
+        For u = 0 To 7
             Console.WriteLine(" Что ты хочешь, чтоб я нарисовал ")
-            Console.WriteLine(" 1 = вертикальную линию,2 = горизонтальную,3 =  квадрат,4 =  цветной квадрат ?, 5 = самому нарисовать ")
+            Console.WriteLine(" 1 = вертикальную линию,2 = горизонтальную,3 =  квадрат,4 =  цветной квадрат ?, 5 = самому нарисовать, 6 = сетка из квадратов, 7 = цветная сетка из квадратов  ")
             u = Console.ReadLine
             Console.SetWindowSize(100, 50)
             Select Case u
                 Case 1
 
-                    Vline(10, 5, 70)
+                    Vline(10, 5, 30)
                 Case 3
 
                     FilRect(10, 5, 70, 35)
 
                 Case 2
 
-                    Hline(10, 5, 70)
+                    Hline(10, 5, 30)
 
                 Case 4
 
                     Nova(10, 5, 70, 35)
                 Case 6
 
-                    line(10, 5, 70)
+                    line(10, 5, 60)
+
                 Case 5
 
                     VIL()
+                Case 7
+                    Jline(10, 5, 60)
             End Select
             Console.WriteLine()
             Console.WriteLine(" спасибо за просмотр!!! ")
@@ -65,6 +70,7 @@ Module Drawings
     Sub Nova(leftX As Byte, topY As Byte, width As Byte, heigh As Byte)
         Console.SetCursorPosition(leftX, topY)
         Console.ForegroundColor = ConsoleColor.Yellow
+        Console.BackgroundColor = ConsoleColor.Magenta
         For j = 0 To heigh - 1
             Hline(leftX, topY + j, width)
         Next
@@ -72,10 +78,19 @@ Module Drawings
     End Sub
 
     Sub line(leftX As Byte, topY As Byte, length As Byte)
-        Console.SetCursorPosition(leftX, topY)
-        For i = 0 To length - 1
-            Console.Write(brush)
-            Console.SetCursorPosition(leftX, topY + i)
+
+        For i = 1 To 8
+            Hline(2 + 10, 2 + i * 5, 70)
+            Vline(2 + 10 * i, 2 + 5, 37)
+        Next
+
+    End Sub
+    Sub Jline(leftX As Byte, topY As Byte, length As Byte)
+        Console.ForegroundColor = ConsoleColor.Green
+        Console.BackgroundColor = ConsoleColor.Gray
+        For i = 1 To 8
+            Hline(2 + 10, 2 + i * 5, 70)
+            Vline(2 + 10 * i, 2 + 5, 37)
         Next
 
     End Sub
