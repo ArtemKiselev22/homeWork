@@ -7,7 +7,7 @@ Module Drawings
     Sub Main(args As String())
         Dim u As Integer
 
-        For u = 0 To 7
+        For u = 0 To 8
             Console.WriteLine(" Что ты хочешь, чтоб я нарисовал ")
             Console.WriteLine(" 1 = вертикальную линию,2 = горизонтальную,3 =  квадрат,4 =  цветной квадрат ?, 5 = самому нарисовать, 6 = сетка из квадратов, 7 = цветная сетка из квадратов  ")
             u = Console.ReadLine
@@ -36,6 +36,9 @@ Module Drawings
                     VIL()
                 Case 7
                     Jline(10, 5, 60)
+                Case 8
+
+                    fura(10, 5, 60)
             End Select
             Console.WriteLine()
             Console.WriteLine(" спасибо за просмотр!!! ")
@@ -91,6 +94,14 @@ Module Drawings
         For i = 1 To 8
             Hline(2 + 10, 2 + i * 5, 70)
             Vline(2 + 10 * i, 2 + 5, 37)
+        Next
+
+    End Sub
+    Sub fura(leftX As Byte, topY As Byte, length As Byte)
+
+        For i = 1 To 5
+            FilRect(5 + 5 * i, 4, 3, 3)
+
         Next
 
     End Sub
