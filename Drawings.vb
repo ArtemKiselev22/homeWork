@@ -1,27 +1,27 @@
 Imports System
 Imports System.Drawing
+Imports System.Linq.Expressions
 Imports System.Runtime.Intrinsics.Arm
 
 Module Drawings
     Private brush As Char = "0"c
     Sub Main(args As String())
         Dim u As Integer
+        Dim key As ConsoleKeyInfo
 
-        For u = 0 To 8
+        Do
             Console.WriteLine(" Что ты хочешь, чтоб я нарисовал ")
-            Console.WriteLine(" 1 = вертикальную линию,2 = горизонтальную,3 =  квадрат,4 =  цветной квадрат ?, 5 = самому нарисовать, 6 = сетка из квадратов, 7 = цветная сетка из квадратов  ")
+            Console.WriteLine(" 1 = вертикальную линию,2 = горизонтальную,3 =  квадрат,4 =  цветной квадрат ?, 5 = самому нарисовать, 6 = сетка из квадратов, 7 = цветная сетка из квадратов,8 = орнамент из квадратиков, 9 = сделать пустой квадрат, 0 = линии ")
             u = Console.ReadLine
             Console.SetWindowSize(100, 50)
             Select Case u
                 Case 1
-
                     Vline(10, 5, 30)
-                Case 3
 
+                Case 3
                     FilRect(10, 5, 70, 35)
 
                 Case 2
-
                     Hline(10, 5, 30)
 
                 Case 4
@@ -30,20 +30,32 @@ Module Drawings
                 Case 6
 
                     line(10, 5, 60)
-
                 Case 5
 
                     VIL()
                 Case 7
                     Jline(10, 5, 60)
-                Case 8
 
+                Case 8
                     fura(10, 5, 60)
+
+                Case 9
+                    square(10, 5, 60)
+
+                Case 0
+                    London(10, 5, 60)
+
             End Select
             Console.WriteLine()
-            Console.WriteLine(" спасибо за просмотр!!! ")
+            Console.WriteLine(" хотите еще что-нибудь нарисовать ? y или n ")
 
-        Next
+            Do
+                key = Console.ReadKey(True)
+            Loop Until key.KeyChar = "y"c Or key.KeyChar = "n"c
+            Console.WriteLine(key.KeyChar)
+            Console.Clear()
+            Console.SetCursorPosition(1, 1)
+        Loop Until key.KeyChar = "n"c
 
     End Sub
 
@@ -100,8 +112,22 @@ Module Drawings
     Sub fura(leftX As Byte, topY As Byte, length As Byte)
 
         For i = 1 To 5
-            FilRect(5 + 5 * i, 4, 3, 3)
+            FilRect(5 + 5 * i, 4, 4, 4)
 
+        Next
+
+    End Sub
+    Sub square(leftX As Byte, topY As Byte, length As Byte)
+
+        Hline(10, 25, 40)
+        Vline(10, 5, 22)
+        Hline(10, 5, 40)
+        Vline(50, 5, 22)
+
+    End Sub
+    Sub London(leftX As Byte, topY As Byte, length As Byte)
+        For i = 1 To 6
+            Hline(10, 5 * i, 40)
         Next
 
     End Sub
