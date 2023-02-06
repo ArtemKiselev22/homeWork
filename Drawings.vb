@@ -110,12 +110,13 @@ Module Drawings
 
     End Sub
     Sub fura(leftX As Byte, topY As Byte, length As Byte)
+        For j = 1 To 5
+            For i = 1 To 5
+                FilRect(5 + 10 * i, 4 + j * 10, 4, 4)
 
-        For i = 1 To 5
-            FilRect(5 + 5 * i, 4, 4, 4)
 
+            Next
         Next
-
     End Sub
     Sub square(leftX As Byte, topY As Byte, length As Byte)
 
