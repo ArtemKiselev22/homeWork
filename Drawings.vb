@@ -29,25 +29,25 @@ Module Drawings
                     Nova(10, 5, 70, 35)
 
                 Case 6
-                    line()
+                    line(10, 5, 30)
 
                 Case 5
                     VIL()
 
                 Case 7
-                    Jline()
+                    Jline(10, 5, 30)
 
                 Case 8
-                    fura()
+                    fura(10, 5, 30)
 
                 Case 9
-                    square()
+                    square(10, 5, 30)
 
                 Case 0
-                    London()
+                    London(10, 5, 30)
 
                 Case 10
-                    stairs()
+                    stairs(10, 5, 30)
 
             End Select
             Console.WriteLine()
@@ -96,7 +96,7 @@ Module Drawings
 
     End Sub
 
-    Sub line()
+    Sub line(leftX As Byte, topY As Byte, length As Byte)
 
         For i = 1 To 8
             Hline(2 + 10, 2 + i * 5, 70)
@@ -104,7 +104,7 @@ Module Drawings
         Next
 
     End Sub
-    Sub Jline()
+    Sub Jline(leftX As Byte, topY As Byte, length As Byte)
         Console.ForegroundColor = ConsoleColor.Green
         Console.BackgroundColor = ConsoleColor.Gray
         For i = 1 To 8
@@ -113,7 +113,7 @@ Module Drawings
         Next
 
     End Sub
-    Sub fura()
+    Sub fura(leftX As Byte, topY As Byte, length As Byte)
 
         For j = 1 To 5
             For i = 1 To 5
@@ -124,7 +124,7 @@ Module Drawings
         Next
 
     End Sub
-    Sub square()
+    Sub square(leftX As Byte, topY As Byte, length As Byte)
 
         Hline(10, 25, 40)
         Vline(10, 5, 22)
@@ -132,13 +132,13 @@ Module Drawings
         Vline(50, 5, 22)
 
     End Sub
-    Sub London()
+    Sub London(leftX As Byte, topY As Byte, length As Byte)
         For i = 1 To 6
             Hline(10, 5 * i, 40)
         Next
 
     End Sub
-    Sub stairs()
+    Sub stairs(leftX As Byte, topY As Byte, length As Byte)
 
         For i = 1 To 46
             Hline(4, i, 2 * i)
