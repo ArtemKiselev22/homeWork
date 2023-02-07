@@ -29,25 +29,25 @@ Module Drawings
                     Nova(10, 5, 70, 35)
 
                 Case 6
-                    line(10, 5, 60)
+                    line()
 
                 Case 5
                     VIL()
 
                 Case 7
-                    Jline(10, 5, 60)
+                    Jline()
 
                 Case 8
-                    fura(10, 5, 60)
+                    fura()
 
                 Case 9
-                    square(10, 5, 60)
+                    square()
 
                 Case 0
-                    London(10, 5, 60)
+                    London()
 
                 Case 10
-                    stairs(10, 26, 60)
+                    stairs()
 
             End Select
             Console.WriteLine()
@@ -96,7 +96,7 @@ Module Drawings
 
     End Sub
 
-    Sub line(leftX As Byte, topY As Byte, length As Byte)
+    Sub line()
 
         For i = 1 To 8
             Hline(2 + 10, 2 + i * 5, 70)
@@ -104,7 +104,7 @@ Module Drawings
         Next
 
     End Sub
-    Sub Jline(leftX As Byte, topY As Byte, length As Byte)
+    Sub Jline()
         Console.ForegroundColor = ConsoleColor.Green
         Console.BackgroundColor = ConsoleColor.Gray
         For i = 1 To 8
@@ -113,7 +113,8 @@ Module Drawings
         Next
 
     End Sub
-    Sub fura(leftX As Byte, topY As Byte, length As Byte)
+    Sub fura()
+
         For j = 1 To 5
             For i = 1 To 5
                 FilRect(5 + 10 * i, 4 + j * 10, 4, 4)
@@ -121,8 +122,9 @@ Module Drawings
 
             Next
         Next
+
     End Sub
-    Sub square(leftX As Byte, topY As Byte, length As Byte)
+    Sub square()
 
         Hline(10, 25, 40)
         Vline(10, 5, 22)
@@ -130,16 +132,16 @@ Module Drawings
         Vline(50, 5, 22)
 
     End Sub
-    Sub London(leftX As Byte, topY As Byte, length As Byte)
+    Sub London()
         For i = 1 To 6
             Hline(10, 5 * i, 40)
         Next
 
     End Sub
-    Sub stairs(leftX As Byte, topY As Byte, length As Byte)
+    Sub stairs()
 
         For i = 1 To 46
-            Hline(7, 1 * i, 2 * i)
+            Hline(4, i, 2 * i)
         Next
     End Sub
     Sub VIL()
