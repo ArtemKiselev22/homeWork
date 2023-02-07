@@ -44,6 +44,8 @@ Module Drawings
 
                 Case 0
                     London(10, 5, 60)
+                Case 10
+                    stairs(10, 26, 60)
 
             End Select
             Console.WriteLine()
@@ -131,6 +133,12 @@ Module Drawings
             Hline(10, 5 * i, 40)
         Next
 
+    End Sub
+    Sub stairs(leftX As Byte, topY As Byte, length As Byte)
+
+        For i = 1 To 46
+            Hline(7, 1 * i, 2 * i)
+        Next
     End Sub
     Sub VIL()
         Dim leftx, topY, Length, heit As Byte
