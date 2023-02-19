@@ -16,7 +16,7 @@ Module Program
         ent = Console.ReadLine
         N = Int((ent * Rnd()) + start)
         Console.WriteLine(N)
-        Console.WriteLine("”гадай число")
+        Console.WriteLine(CheckDublicates(N))
 
         Do
 
@@ -42,5 +42,16 @@ Module Program
         Console.WriteLine("Victory")
 
     End Sub
+    Function CheckDublicates(Num As String) As Boolean
+        CheckDublicates = False
+        For j = 0 To 2
+            For i = 1 To 3
+                If Num.Chars(j) = Num.Chars(i) Then
+                    CheckDublicates = True
+                End If
+            Next
+        Next
+
+    End Function
 End Module
 
