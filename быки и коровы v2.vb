@@ -8,15 +8,20 @@ Module Program
         'TODO:   Генерируем число
         Console.ForegroundColor = ConsoleColor.Green
         Randomize()
-        N = Int((10000 * Rnd()) + 1000)
-        Console.WriteLine(N)
+        N = Int((9000 * Rnd()) + 1000)
+        'Console.WriteLine(N)
         Console.WriteLine(CheckDublicates(N))
         Do
-            N = Int((10000 * Rnd()) + 1000)
-            Console.WriteLine(N)
+            N = Int((9000 * Rnd()) + 1000)
+            'Console.WriteLine(N)
         Loop Until CheckDublicates(N) = False
+
         Do
             ver = Console.ReadLine()
+            Do
+                Console.WriteLine(CheckDublicatesUSE(ver))
+                ver = Console.ReadLine()
+            Loop Until CheckDublicatesUSE(ver) = False
             cows = 0
             bulls = 0
             For j As Byte = 0 To 3
@@ -53,5 +58,16 @@ Module Program
         Next
 
     End Function
+    Function CheckDublicatesUSE(Ver As String) As Boolean
+        For j = 0 To 2
+            For i = j + 1 To 3
+                If Ver.Chars(j) = Ver.Chars(i) Then
+                    CheckDublicatesUSE = True
+                    Console.WriteLine("try again")
+                End If
+            Next
+        Next
+    End Function
+
 End Module
 
