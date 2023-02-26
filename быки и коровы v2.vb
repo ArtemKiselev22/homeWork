@@ -5,46 +5,54 @@ Module Program
     Sub Main(args As String())
         Dim N, ver As String
         Dim bulls, cows As Integer
+        Dim key As ConsoleKeyInfo
         'TODO:   Генерируем число
-        Console.ForegroundColor = ConsoleColor.Green
-        Randomize()
-        N = Int((9000 * Rnd()) + 1000)
-        'Console.WriteLine(N)
-        Console.WriteLine(CheckDublicates(N))
         Do
-            N = Int((9000 * Rnd()) + 1000)
-            'Console.WriteLine(N)
-        Loop Until CheckDublicates(N) = False
+            key = Console.ReadKey(True)
 
-        Do
-            ver = Console.ReadLine()
+            Console.ForegroundColor = ConsoleColor.Green
+            Randomize()
             Do
-                Console.WriteLine(CheckDublicatesUSE(ver))
+                N = Int((9000 * Rnd()) + 1000)
+                Console.WriteLine(N)
+            Loop Until CheckDublicates(N) = False
+
+            Do
                 ver = Console.ReadLine()
-            Loop Until CheckDublicatesUSE(ver) = False
-            cows = 0
-            bulls = 0
-            For j As Byte = 0 To 3
-                For i As Byte = 0 To 3
-                    If (N.Chars(i) = ver.Chars(j)) Then
-                        If i = j Then
+                Do
+                    Console.WriteLine(CheckDublicatesUSE(ver))
+                    ver = Console.ReadLine()
+                Loop Until CheckDublicatesUSE(ver) = False
+                cows = 0
+                bulls = 0
+                For j As Byte = 0 To 3
+                    For i As Byte = 0 To 3
+                        If (N.Chars(i) = ver.Chars(j)) Then
+                            If i = j Then
 
-                            bulls += 1
-                        Else
+                                bulls += 1
+                            Else
 
-                            cows += 1
+                                cows += 1
+                            End If
                         End If
-                    End If
 
+                    Next
                 Next
-            Next
-            Console.ForegroundColor = ConsoleColor.Red
-            Console.WriteLine("have you found the cows = {0}", cows)
-            Console.WriteLine("have you found the bulls = {0}", bulls)
+                Console.ForegroundColor = ConsoleColor.Red
+                Console.WriteLine("have you found the cows = {0}", cows)
+                Console.WriteLine("have you found the bulls = {0}", bulls)
 
-        Loop Until N = ver
-        Console.ForegroundColor = ConsoleColor.Green
-        Console.WriteLine("Victory")
+            Loop Until N = ver
+            Console.ForegroundColor = ConsoleColor.Green
+            Console.WriteLine("Victory")
+            Console.WriteLine("Play again ? If yes = y if no = n ")
+            Console.WriteLine("moves were made  = {0}", N)
+        Loop Until key.KeyChar = "y"c Or key.KeyChar = "n"c
+        Console.WriteLine(key.KeyChar)
+        Console.Clear()
+        Console.SetCursorPosition(1, 1)
+
 
     End Sub
     Function CheckDublicates(Num As String) As Boolean
