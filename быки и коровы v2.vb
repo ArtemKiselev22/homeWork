@@ -6,7 +6,6 @@ Module Program
         Dim N, ver As String
         Dim bulls, cows As Integer
         Dim key As ConsoleKeyInfo
-        'TODO:   Генерируем число
         Do
             key = Console.ReadKey(True)
 
@@ -22,7 +21,7 @@ Module Program
                 Do
                     Console.WriteLine(CheckDublicatesUSE(ver))
                     ver = Console.ReadLine()
-                Loop Until CheckDublicatesUSE(ver) = False
+                Loop Until CheckDublicates(ver) = False
                 cows = 0
                 bulls = 0
                 For j As Byte = 0 To 3
@@ -39,6 +38,7 @@ Module Program
 
                     Next
                 Next
+
                 Console.ForegroundColor = ConsoleColor.Red
                 Console.WriteLine("have you found the cows = {0}", cows)
                 Console.WriteLine("have you found the bulls = {0}", bulls)
@@ -47,12 +47,14 @@ Module Program
             Console.ForegroundColor = ConsoleColor.Green
             Console.WriteLine("Victory")
             Console.WriteLine("Play again ? If yes = y if no = n ")
-            Console.WriteLine("moves were made  = {0}", N)
-        Loop Until key.KeyChar = "y"c Or key.KeyChar = "n"c
-        Console.WriteLine(key.KeyChar)
-        Console.Clear()
-        Console.SetCursorPosition(1, 1)
-
+            Console.WriteLine("moves were made  = {0}", ver)
+            Do
+                key = Console.ReadKey(True)
+            Loop Until key.KeyChar = "y"c Or key.KeyChar = "n"c
+            Console.WriteLine(key.KeyChar)
+            Console.Clear()
+            Console.SetCursorPosition(1, 1)
+        Loop Until key.KeyChar = "n"c
 
     End Sub
     Function CheckDublicates(Num As String) As Boolean
