@@ -6,9 +6,11 @@ Module Program
         Dim N, ver As String
         Dim bulls, cows As Integer
         Dim key As ConsoleKeyInfo
+        Dim moves As Integer
+        Console.WriteLine("key space")
+
         Do
             key = Console.ReadKey(True)
-
             Console.ForegroundColor = ConsoleColor.Green
             Randomize()
             Do
@@ -18,10 +20,12 @@ Module Program
 
             Do
                 ver = Console.ReadLine()
-                Do
-                    Console.WriteLine(CheckDublicatesUSE(ver))
-                    ver = Console.ReadLine()
-                Loop Until CheckDublicates(ver) = False
+                moves += 1
+                If CheckDublicates(ver) Then
+                    Continue Do
+                End If
+
+
                 cows = 0
                 bulls = 0
                 For j As Byte = 0 To 3
@@ -47,13 +51,12 @@ Module Program
             Console.ForegroundColor = ConsoleColor.Green
             Console.WriteLine("Victory")
             Console.WriteLine("Play again ? If yes = y if no = n ")
-            Console.WriteLine("moves were made  = {0}", ver)
+            Console.WriteLine("moves were made  = {0}", moves)
             Do
                 key = Console.ReadKey(True)
             Loop Until key.KeyChar = "y"c Or key.KeyChar = "n"c
             Console.WriteLine(key.KeyChar)
             Console.Clear()
-            Console.SetCursorPosition(1, 1)
         Loop Until key.KeyChar = "n"c
 
     End Sub
@@ -68,16 +71,5 @@ Module Program
         Next
 
     End Function
-    Function CheckDublicatesUSE(Ver As String) As Boolean
-        For j = 0 To 2
-            For i = j + 1 To 3
-                If Ver.Chars(j) = Ver.Chars(i) Then
-                    CheckDublicatesUSE = True
-                    Console.WriteLine("try again")
-                End If
-            Next
-        Next
-    End Function
-
 End Module
 
