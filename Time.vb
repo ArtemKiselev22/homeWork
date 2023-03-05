@@ -10,7 +10,7 @@ Module Program
 
         Console.WriteLine("Enter the time in seconds")
         sec = Console.ReadLine()
-        min = sec / 60
+        min = sec \ 60
         min2 = min * 60
         hour = sec Mod 60
         hor = min \ 60
