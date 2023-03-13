@@ -11,6 +11,7 @@ Module Masiv
 
         'printRevers(num)
 
+        Console.WriteLine("index = {0}", find(num, 30))
         'Dim strings(4) As String
 
         'For i = 1 To strings.Length - 1
@@ -18,18 +19,10 @@ Module Masiv
         'Next
         'printRevers(strings)
 
-        For f = 0 To 4
-            If num(f) = 21 Then
-                Console.WriteLine("Have 21")
-            Else
-                Console.WriteLine("Don't have 21")
-            End If
-        Next
-
     End Sub
     Sub printRevers(list As Integer())
 
-        For i = 0 To list.Length - 1
+        For i = list.Length - 1 To 0 Step -1
             Console.WriteLine(list(i))
         Next
 
@@ -41,5 +34,22 @@ Module Masiv
         Next
 
     End Sub
+    Sub print(list As Integer())
 
+        For i = 0 To list.Length - 1
+            Console.WriteLine(list(i))
+        Next
+
+    End Sub
+    Function find(list As Integer(), e As Integer) As Integer
+
+        For f = 0 To 4
+            If list(f) = e Then
+                find = f
+                Exit Function
+            End If
+        Next
+        find = -1
+
+    End Function
 End Module
