@@ -49,7 +49,7 @@ Module Drawings
                 Case 10
                     stairs()
                 Case 11
-                    Chess(10, 5, 30)
+                    Chess()
 
             End Select
             Console.WriteLine()
@@ -178,7 +178,7 @@ Module Drawings
             Console.SetCursorPosition(10, 3 + j)
         Next
     End Sub
-    Sub Chess(leftX As Byte, topY As Byte, length As Byte)
+    Sub Chess()
         Console.ForegroundColor = ConsoleColor.White
         fura()
         For j = 1 To 8
