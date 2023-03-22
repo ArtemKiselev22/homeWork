@@ -29,25 +29,25 @@ Module Drawings
                     Nova(10, 5, 70, 35)
 
                 Case 6
-                    line(10, 5, 30)
+                    line()
 
                 Case 5
                     VIL()
 
                 Case 7
-                    Jline(10, 5, 30)
+                    Jline()
 
                 Case 8
-                    fura(10, 5, 30)
+                    fura()
 
                 Case 9
-                    square(10, 5, 30)
+                    square()
 
                 Case 0
-                    London(10, 5, 30)
+                    London()
 
                 Case 10
-                    stairs(10, 5, 30)
+                    stairs()
                 Case 11
                     Chess(10, 5, 30)
 
@@ -98,7 +98,7 @@ Module Drawings
 
     End Sub
 
-    Sub line(leftX As Byte, topY As Byte, length As Byte)
+    Sub line()
 
         For i = 1 To 8
             Hline(2 + 10, 2 + i * 5, 70)
@@ -106,7 +106,7 @@ Module Drawings
         Next
 
     End Sub
-    Sub Jline(leftX As Byte, topY As Byte, length As Byte)
+    Sub Jline()
         Console.ForegroundColor = ConsoleColor.Green
         Console.BackgroundColor = ConsoleColor.Gray
         For i = 1 To 8
@@ -115,7 +115,7 @@ Module Drawings
         Next
 
     End Sub
-    Sub fura(leftX As Byte, topY As Byte, length As Byte)
+    Sub fura()
 
         For j = 1 To 8
             For i = 1 To 8
@@ -124,27 +124,27 @@ Module Drawings
         Next
 
     End Sub
-    Sub square(leftX As Byte, topY As Byte, length As Byte)
+    Sub square()
         Console.ForegroundColor = ConsoleColor.Yellow
         For j = 1 To 2
             Hline(10, 5 * j, 10)
             Vline(10 * j, 5, 7)
         Next
     End Sub
-    Sub ons(leftX As Byte, topY As Byte, length As Byte)
+    Sub ons()
         Console.ForegroundColor = ConsoleColor.Yellow
         Hline(7, 63, 65)
         Vline(7, 6, 59)
         Hline(7, 6, 65)
         Vline(71, 6, 59)
     End Sub
-    Sub London(leftX As Byte, topY As Byte, length As Byte)
+    Sub London()
         For i = 1 To 6
             Hline(10, 5 * i, 40)
         Next
 
     End Sub
-    Sub stairs(leftX As Byte, topY As Byte, length As Byte)
+    Sub stairs()
 
         For i = 1 To 46
             Hline(4, i, 2 * i)
@@ -180,7 +180,7 @@ Module Drawings
     End Sub
     Sub Chess(leftX As Byte, topY As Byte, length As Byte)
         Console.ForegroundColor = ConsoleColor.White
-        fura(10, 5, 30)
+        fura()
         For j = 1 To 8
             For i = 1 To 8
                 If (i + j) Mod 2 = 1 Then
@@ -189,6 +189,6 @@ Module Drawings
                 End If
             Next
         Next
-        ons(10, 5, 30)
+        ons()
     End Sub
 End Module
