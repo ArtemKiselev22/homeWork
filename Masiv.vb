@@ -1,15 +1,16 @@
 Imports System
+Imports System.Net
 
 Module Masiv
     Sub Main(args As String())
-        Dim num(6), Mas As Integer
+        Dim num(4), Mas As String
         'Dim Slovo() As String
         Console.WriteLine("have 5 numbers")
         Dim m, n As Integer
 
-        'For i = 0 To 4
-        '    num(i) = Console.ReadLine()
-        'Next
+        For i = 0 To 4
+            num(i) = Console.ReadLine()
+        Next
 
         'printRevers(Slovo)
 
@@ -17,13 +18,16 @@ Module Masiv
 
         Dim strings(4) As String
 
-        For i = 0 To strings.Length - 1
-            strings(i) = Console.ReadLine()
-        Next
-        n = min(strings)
-        m = max(strings)
-        Console.WriteLine("index = {0}, Min = {1}", n, strings(n))
-        Console.WriteLine("index = {0}, Max = {1}", m, strings(m))
+        'For i = 0 To strings.Length - 1
+        '    strings(i) = Console.ReadLine()
+        'Next
+        'n = min(strings)
+        'm = max(strings)
+        'Console.WriteLine("index = {0}, Min = {1}", n, strings(n))
+        'Console.WriteLine("index = {0}, Max = {1}", m, strings(m))
+        add(num, "add", 2)
+
+
         'Console.WriteLine("index = {0}", minInt(num))
     End Sub
     Sub printRevers(list As Integer())
@@ -99,4 +103,13 @@ Module Masiv
     '    Next
 
     'End Function
+
+    Sub add(ByRef list As String(), val As String, index As Integer)
+        If index < 0 Or index > list.Length Then Exit Sub
+        ReDim Preserve list(list.Length)
+        For i = list.Length - 1 To index + 1 Step -1
+            list(i) = list(i - 1)
+        Next
+        list(index) = val
+    End Sub
 End Module
