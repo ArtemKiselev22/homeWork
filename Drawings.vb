@@ -5,7 +5,7 @@ Imports System.Runtime.Intrinsics.Arm
 
 Module Drawings
     Private brush As Char = "0"c
-    Sub Main(args As String())
+    Sub Main()
         Dim u As Integer
         Dim key As ConsoleKeyInfo
         Console.ForegroundColor = ConsoleColor.DarkBlue
@@ -29,7 +29,7 @@ Module Drawings
                     Nova(10, 5, 70, 35)
 
                 Case 6
-                    line(10, 5, 70)
+                    Line(10, 5, 70)
 
                 Case 5
                     VIL()
@@ -38,16 +38,16 @@ Module Drawings
                     Jline(10, 5, 70)
 
                 Case 8
-                    fura(10, 5, 5, 5)
+                    Fura(10, 5, 5, 5)
 
                 Case 9
-                    square(10, 5, 10)
+                    Square(10, 5, 10)
 
                 Case 0
                     London(10, 5, 40)
 
                 Case 10
-                    stairs(4, 1, 2)
+                    Stairs(4, 1, 2)
                 Case 11
                     Chess(4, 7, 7, 7)
                 Case 12
@@ -241,15 +241,13 @@ Module Drawings
     Sub NEWLineTV(leftX As Byte, topY As Byte, width As Byte, heigh As Byte)
         Console.BackgroundColor = ConsoleColor.Red
         Console.ForegroundColor = ConsoleColor.Red
-        FilRect(4, 5, 70, 28)
+        FilRect(4, 5, 70, 40)
 
-        For j = 1 To 5
-            For i = 1 To 5
-                If (i + j) Mod 3 = 1 Then
-                    Console.BackgroundColor = ConsoleColor.White
-                    Console.ForegroundColor = ConsoleColor.White
-                    FilRect(leftX, topY * i + j, width, heigh)
-                End If
+        For j = 1 To 2
+            For i = 1 To 8
+                Console.BackgroundColor = ConsoleColor.White
+                Console.ForegroundColor = ConsoleColor.White
+                FilRect(leftX, topY * i + j, width, heigh)
             Next
         Next
         Console.BackgroundColor = ConsoleColor.Black
