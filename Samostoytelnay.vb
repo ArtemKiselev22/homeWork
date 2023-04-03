@@ -25,7 +25,7 @@ Module Program
                         Console.Write("Масса  ")
                         Console.WriteLine(Mas)
                         Console.Write("Номер ячейки ")
-                        Console.WriteLine("= {0}", num)
+                        Console.WriteLine(num)
                     Next
             End Select
         Loop Until False
