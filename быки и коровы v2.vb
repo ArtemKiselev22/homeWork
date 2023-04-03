@@ -1,5 +1,5 @@
 Imports System
-
+Imports System.Runtime.InteropServices
 
 Module Program
     Sub Main(args As String())
@@ -7,24 +7,22 @@ Module Program
         Dim bulls, cows As Integer
         Dim key As ConsoleKeyInfo
         Dim moves As Integer
-        Console.WriteLine("key space")
+        Console.WriteLine("Нажмите на любую кнопку")
+        Randomize()
 
         Do
-            key = Console.ReadKey(True)
+            Console.ReadKey(True)
             Console.ForegroundColor = ConsoleColor.Green
-            Randomize()
             Do
                 N = Int((9000 * Rnd()) + 1000)
-                Console.WriteLine(N)
             Loop Until CheckDublicates(N) = False
-
+            Console.WriteLine(N)
             Do
                 ver = Console.ReadLine()
                 moves += 1
-                If CheckDublicates(ver) Then
+                If Not IsCorrect(ver) Then
                     Continue Do
                 End If
-
 
                 cows = 0
                 bulls = 0
@@ -70,6 +68,15 @@ Module Program
             Next
         Next
 
+    End Function
+    Function IsCorrect(Num As String) As Boolean
+        If Not Num.Length = 4 Then Return False
+
+        For i = 0 To 3
+            If Not Char.IsDigit(Num.Chars(i)) Then Return False
+        Next
+
+        Return Not CheckDublicates(Num)
     End Function
 End Module
 
