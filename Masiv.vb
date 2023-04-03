@@ -5,12 +5,12 @@ Module Masiv
     Sub Main(args As String())
         Dim num(4), Mas As String
         'Dim Slovo() As String
-        Console.WriteLine("have 5 numbers")
+        Console.WriteLine("have 5 Name")
         Dim m, n As Integer
 
-        For i = 0 To 4
-            num(i) = Console.ReadLine()
-        Next
+        'For i = 0 To 4
+        '    num(i) = Console.ReadLine()
+        'Next
 
         'printRevers(Slovo)
 
@@ -18,16 +18,29 @@ Module Masiv
 
         Dim strings(4) As String
 
-        'For i = 0 To strings.Length - 1
-        '    strings(i) = Console.ReadLine()
-        'Next
+        For i = 0 To strings.Length - 1
+            strings(i) = Console.ReadLine()
+        Next
+        printRevers(strings)
+
+        Console.WriteLine("Write 5 values (Килограммы)")
+
+        For i = 0 To 4
+            num(i) = Console.ReadLine()
+        Next
+        Console.WriteLine("Numbers")
+        For i = 0 To 4
+            num(i) = Console.ReadLine()
+        Next
         'n = min(strings)
         'm = max(strings)
         'Console.WriteLine("index = {0}, Min = {1}", n, strings(n))
         'Console.WriteLine("index = {0}, Max = {1}", m, strings(m))
-        add(num, "add", 2)
+        'add(num, "add", 2)
 
 
+        printRevers(strings)
+        printRevers(num)
         'Console.WriteLine("index = {0}", minInt(num))
     End Sub
     Sub printRevers(list As Integer())
@@ -111,5 +124,17 @@ Module Masiv
             list(i) = list(i - 1)
         Next
         list(index) = val
+    End Sub
+
+    Sub delete(list As String())
+
+    End Sub
+
+    Sub Sklad(list As String(), name As String, kilo As String, numb As String)
+
+        Console.WriteLine("Name", name)
+        Console.WriteLine("Kilo", kilo)
+        Console.WriteLine("Numbers", numb)
+
     End Sub
 End Module
