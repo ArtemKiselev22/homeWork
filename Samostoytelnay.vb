@@ -4,33 +4,22 @@ Imports System.Text.Json
 Module Program
     Sub Main(args As String())
         Dim Naim As String
-        Dim num, u As Integer
+        Dim num As Integer
         Dim Mas As Double
         Dim key As ConsoleKeyInfo
         Console.ForegroundColor = ConsoleColor.Red
-        Console.WriteLine("Нажмите 1")
-        u = Console.ReadLine
-
         Do
             Console.WriteLine("Добавте товар")
-            Select Case u
-                Case 1
-                    Console.Write("Наименование  ")
-                    Naim = Console.ReadLine()
-                    Console.Write("Масса  ")
-                    Mas = Console.ReadLine()
-                    For i = 1 To u
-                        num = num + 1
-                        Console.ForegroundColor = ConsoleColor.Green
-                        Console.WriteLine("Ваш отчет")
-                        Console.Write("Наименование  ")
-                        Console.WriteLine(Naim)
-                        Console.Write("Масса  ")
-                        Console.WriteLine(Mas)
-                        Console.Write("Номер ячейки ")
-                        Console.WriteLine(num)
-                    Next
-            End Select
+            Console.Write("Наименование  ")
+            Naim = Console.ReadLine()
+            Console.Write("Масса  ")
+            Mas = Console.ReadLine()
+            num = num + 1
+            Console.ForegroundColor = ConsoleColor.Green
+            Console.WriteLine("Ваш отчет")
+            Console.WriteLine("Наименование = {0} ", Naim)
+            Console.WriteLine("Масса = {0} ", Mas)
+            Console.WriteLine("Номер ячейки = {0}", num)
             Console.ForegroundColor = ConsoleColor.Red
             Console.WriteLine("add a product ?")
             Console.WriteLine("Yes = y , Not = n")
