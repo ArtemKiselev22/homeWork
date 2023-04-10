@@ -8,40 +8,49 @@ Module Masiv
         Console.WriteLine("have 5 Name")
         Dim m, n As Integer
 
-        'For i = 0 To 4
-        '    num(i) = Console.ReadLine()
-        'Next
+        For i = 0 To 4
+            num(i) = Console.ReadLine()
+        Next
 
         'printRevers(Slovo)
 
         'Console.WriteLine("index = {0}", find(num, 21))
 
-        Dim strings(4) As String
+        'Dim strings(4) As String
 
-        For i = 0 To strings.Length - 1
-            strings(i) = Console.ReadLine()
-        Next
-        printRevers(strings)
+        'For i = 0 To strings.Length - 1
+        '    strings(i) = Console.ReadLine()
+        'Next
+        ''printRevers(strings)
 
-        Console.WriteLine("Write 5 values (Килограммы)")
+        'Console.WriteLine("Write 5 values (Килограммы)")
 
-        For i = 0 To 4
-            num(i) = Console.ReadLine()
-        Next
-        Console.WriteLine("Numbers")
-        For i = 0 To 4
-            num(i) = Console.ReadLine()
-        Next
-        'n = min(strings)
-        'm = max(strings)
-        'Console.WriteLine("index = {0}, Min = {1}", n, strings(n))
-        'Console.WriteLine("index = {0}, Max = {1}", m, strings(m))
-        'add(num, "add", 2)
+        'For i = 0 To 4
+        '    num(i) = Console.ReadLine()
+        'Next
+        'Console.WriteLine("Numbers")
+        'For i = 0 To 4
+        '    num(i) = Console.ReadLine()
+        'Next
+        ''n = min(strings)
+        ''m = max(strings)
+        ''Console.WriteLine("index = {0}, Min = {1}", n, strings(n))
+        ''Console.WriteLine("index = {0}, Max = {1}", m, strings(m))
+        ''add(num, "add", 2)
 
 
-        printRevers(strings)
-        printRevers(num)
+        'printRevers(strings)
+        'printRevers(num)
         'Console.WriteLine("index = {0}", minInt(num))
+        'delete(num, 2)
+        'print(num)
+        Dim minIndex As Integer = min(num)
+        If minIndex > 0 Then
+            Dim Boofer As String = num(0)
+            num(0) = num(minIndex)
+            num(minIndex) = Boofer
+        End If
+
     End Sub
     Sub printRevers(list As Integer())
 
@@ -97,9 +106,9 @@ Module Masiv
 
     End Function
 
-    Function min(list As String()) As Integer
-        min = 0
-        For i = 1 To list.Length - 1
+    Function min(list As String(), Optional start As Integer = 0) As Integer
+        min = start
+        For i = start To list.Length - 1
             If list(min) > list(i) Then
                 min = i
             End If
@@ -126,15 +135,11 @@ Module Masiv
         list(index) = val
     End Sub
 
-    Sub delete(list As String())
+    Sub delete(ByRef list As String(), index As Integer)
+        If index < 0 Or index >= list.Length Then Exit Sub
+        For i As Integer = index To list.Length - 2
 
-    End Sub
-
-    Sub Sklad(list As String(), name As String, kilo As String, numb As String)
-
-        Console.WriteLine("Name", name)
-        Console.WriteLine("Kilo", kilo)
-        Console.WriteLine("Numbers", numb)
-
+        Next
+        ReDim Preserve list(list.Length - 2)
     End Sub
 End Module
