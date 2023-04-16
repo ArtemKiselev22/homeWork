@@ -11,7 +11,7 @@ Module Program
         Console.WriteLine(x)
         y = MathF.Log(a) - b * c
         Console.WriteLine(y)
-        z = MathF.Sin(x * y) + 2
+        z = MathF.Sin(x * MathF.Sin(y) + 2)
         Console.WriteLine(z)
     End Sub
 End Module
