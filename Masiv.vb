@@ -2,8 +2,12 @@ Imports System
 Imports System.Net
 
 Module Masiv
+    Enum sortDirection
+        fewrwegf
+        Vfdret
+    End Enum
     Sub Main(args As String())
-        Dim num(4), Mas As String
+        Dim num(4), Mas As Integer
         'Dim Slovo() As String
         Console.WriteLine("have 5 Name")
         Dim m, n As Integer
@@ -44,12 +48,13 @@ Module Masiv
         'Console.WriteLine("index = {0}", minInt(num))
         'delete(num, 2)
         'print(num)
-        Dim minIndex As Integer = min(num)
-        If minIndex > 0 Then
-            Dim Boofer As String = num(0)
-            num(0) = num(minIndex)
-            num(minIndex) = Boofer
-        End If
+        'Dim minIndex As Integer = min(num)
+        'If minIndex > 0 Then
+        '    Dim Boofer As String = num(0)
+        '    num(0) = num(minIndex)
+        '    num(minIndex) = Boofer
+        'End If
+        Sort(num, sortDirection.Vfdret)
 
     End Sub
     Sub printRevers(list As Integer())
@@ -96,7 +101,7 @@ Module Masiv
         findStr = -1
 
     End Function
-    Function max(list As String()) As Integer
+    Function max(list As Integer(), Optional start As Integer = 0) As Integer
         max = 0
         For i = 1 To list.Length - 1
             If list(max) < list(i) Then
@@ -106,7 +111,7 @@ Module Masiv
 
     End Function
 
-    Function min(list As String(), Optional start As Integer = 0) As Integer
+    Function min(list As Integer(), Optional start As Integer = 0) As Integer
         min = start
         For i = start To list.Length - 1
             If list(min) > list(i) Then
@@ -141,5 +146,34 @@ Module Masiv
 
         Next
         ReDim Preserve list(list.Length - 2)
+    End Sub
+
+    Sub Sort(list As Integer(), derection As Boolean)
+        Dim index As Integer
+        Dim boofer As Integer
+        For i = 0 To list.Length - 1
+            If derection Then
+                index = min(list, i)
+            ElseIf sortDirection.Vfdret Then
+                index = max(list, i)
+            End If
+            If index > i Then
+                boofer = list(index)
+                list(index) = list(i)
+                list(i) = boofer
+            End If
+        Next
+    End Sub
+    Sub Sort1(list As Integer(), Optional start As Integer = 0)
+        Dim Maxindex As Integer
+        Dim boofer As Integer
+        For i = 0 To list.Length - 1
+            If Maxindex > i Then
+                boofer = list(Maxindex)
+                list(Maxindex) = list(i)
+                list(i) = boofer
+            End If
+            Maxindex = max(list, i)
+        Next
     End Sub
 End Module
