@@ -3,8 +3,8 @@ Imports System.Net
 
 Module Masiv
     Enum sortDirection
-        fewrwegf
-        Vfdret
+        increasing
+        decrease
     End Enum
     Sub Main(args As String())
         Dim num(4), Mas As Integer
@@ -54,8 +54,8 @@ Module Masiv
         '    num(0) = num(minIndex)
         '    num(minIndex) = Boofer
         'End If
-        Sort(num, sortDirection.Vfdret)
-
+        Sort(num, sortDirection.increasing)
+        print(num)
     End Sub
     Sub printRevers(list As Integer())
 
@@ -152,9 +152,9 @@ Module Masiv
         Dim index As Integer
         Dim boofer As Integer
         For i = 0 To list.Length - 1
-            If derection Then
+            If derection = sortDirection.increasing Then
                 index = min(list, i)
-            ElseIf sortDirection.Vfdret Then
+            ElseIf derection = sortDirection.decrease Then
                 index = max(list, i)
             End If
             If index > i Then
@@ -162,18 +162,6 @@ Module Masiv
                 list(index) = list(i)
                 list(i) = boofer
             End If
-        Next
-    End Sub
-    Sub Sort1(list As Integer(), Optional start As Integer = 0)
-        Dim Maxindex As Integer
-        Dim boofer As Integer
-        For i = 0 To list.Length - 1
-            If Maxindex > i Then
-                boofer = list(Maxindex)
-                list(Maxindex) = list(i)
-                list(i) = boofer
-            End If
-            Maxindex = max(list, i)
         Next
     End Sub
 End Module
